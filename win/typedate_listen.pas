@@ -46,7 +46,13 @@ end;
 //lire les  instructions:
 //lines.loadFromFile(conf_file); 
 //line := lines[0]; 
-line :='91+114,typedate.exe -d'; //en dure 
+
+line :='91+114,'+getuserDir()+PathDelim+'typedate.exe -d'; //en dure 
+//if(fileExists('c:\windows\system32\typedate.exe')) then
+begin
+line :='91+114,c:\windows\system32\typedate.exe -d'; //en dure 
+end;
+
 parts := splitString(',',line);
 vkeys_parts:= splitString('+', parts[0] );
 vk1 := strToInt(vkeys_parts[0] );
