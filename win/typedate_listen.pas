@@ -6,7 +6,7 @@ uses windows, sysutils, classes , uMemo, uEvents;
 var
  r,fkey,vk1 ,vk2,vk1_state,sleep_val:integer;
 
- is_console:boolean= false;
+ is_console:boolean=false;
 first_down:boolean=true;
 lines:TStringList;
 mess,filepath,conf_file,filename_noext,
@@ -31,6 +31,8 @@ appname:=filename_noext;
 if( is_console ) then writeln('appname :', appname);
 
 
+
+
 lines:= TstringList.create();
 
 if(not fileexists(conf_file)) then
@@ -45,12 +47,14 @@ end;
  if( is_console ) then writeln('Hello');
 //lire les  instructions:
 //lines.loadFromFile(conf_file); 
-//line := lines[0]; 
+//line := lines[0];
 
-line :='91+114,'+getuserDir()+PathDelim+'typedate.exe -d'; //en dure 
+//line :='91+114,'+'typedate.exe -d'; //en dure 
+//messageBox(0,Pchar(line),'',0);
 //if(fileExists('c:\windows\system32\typedate.exe')) then
 begin
-line :='91+114,c:\windows\system32\typedate.exe -d'; //en dure 
+//line :='91+114,c:\windows\system32\typedate.exe -d'; //en dure 
+line :='91+114,typedate.exe -d'; //en dure 
 end;
 
 parts := splitString(',',line);
@@ -89,7 +93,9 @@ if( is_console ) then writeln('vk1 OK =',vk1_state);
                         //command:='C:\Users\W596554\Documents\dev\more\pascal\typedate\typedate.exe;
                         //command := 'notepad';
                           if(is_console) then writeln('GO action, exec:', command);
+//messageBox(0,Pchar(command),'EXECUTE',0);
 
+ 
                        r:= execute(command);
                        if(is_console) then writeln('RESULT:',r);
 
