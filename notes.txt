@@ -1,0 +1,9 @@
+    #Add vscode snippet  (File->preferences->UserSnippets->PHP)
+    
+    , "typedate":{     
+        "prefix": "typedate"
+        ,"description": "Type current date and time"
+        ,"body": [
+            "#$description : $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",   
+        ]
+    } 
