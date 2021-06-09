@@ -53,8 +53,10 @@ end;
 //messageBox(0,Pchar(line),'',0);
 //if(fileExists('c:\windows\system32\typedate.exe')) then
 begin
-//line :='91+114,c:\windows\system32\typedate.exe -d'; //en dure 
-line :='91+114,typedate.exe -d'; //en dure 
+line :='91+114,c:\windows\system32\typedate.exe -d'; //en dure :(
+line :='91+114,C:\Users\Bruno\Documents\dev\pascal\typedate\win\typedate.exe -d'; //en dure :(
+    
+//line :='91+114,typedate.exe -d'; //en dure 
 end;
 
 parts := splitString(',',line);
