@@ -4,7 +4,14 @@
 #include "../myheaders/xtools.h"
 #include "../myheaders/console.h"
 
- 
+//2023-08-05 00:14:32 - makefile build.. see https://jdhao.github.io/2020/12/12/build_opencv_project_with_cmake/
+// mkdir build
+// # use the following command to build if you are in project root
+// cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
+// cd build
+// cmake --build .   
+
+
 string appname="typedate";
 //install line:
 //   sudo ln -s /home/boony/documents/dev/c++/typedate/build/typedate /usr/bin/typedate
@@ -32,7 +39,10 @@ int main(int argc, char **argv) {
             string scout;
             c_out<<"Usage : "<<appname<<" -t 4  #sec, wait 4secs before typing"<<endl     
             <<"Usage : "<<appname<<" -i 100 #inner millisec, type each letter then wait 100 ms"<<endl
-            <<"Usage : "<<appname<<" -f \"%Y-%m-%d %X\" #specify the format"<<endl;  
+            <<"Usage : "<<appname<<" -f \"%Y-%m-%d %X\" #specify the format"<<endl
+            <<"Usage : "<<appname<<" FR #specify FR format"<<endl
+            <<"Usage : "<<appname<<" -f \"%d/%m/%Y %X\" #specify FR format"<<endl; 
+            
             writeWhite(c_out.str());
             return 0;
         }
