@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
     {
         
         string arg = argv[i];
-        arg =  trimStr(strToLower(arg));
+        arg =  trimStr(strToLower(arg));  //2023-08-05 00:27:20 - Watchout, string is forced to LOWER CASE
         
         if( (arg == "-h") || (arg == "--help") )
         {      
@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
             writeWhite(c_out.str());
             return 0;
         }
-        
+        //cout<<"ARGUMENT is "<<"["<<arg<<"]"<<endl;
         if( (arg == "-t") )
         {  //wait T seconds
             if(argc>=i+1)
@@ -67,6 +67,11 @@ int main(int argc, char **argv) {
             {
                format = (argv[i+1]);                                 
             }            
+        }else if( (arg == "fr") )
+        {  
+            //Force Format to FR    
+            puts("Format FR!");
+            format = "%d/%m/%Y %X";
         }   
     }        
  
