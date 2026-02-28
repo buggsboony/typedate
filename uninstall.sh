@@ -9,10 +9,13 @@ extension=
 echo "killing running instances"
 killall $what
 
-echo "remove from usr bin"
-sudo rm /usr/bin/$what
-sudo rm /usr/bin/$what2
+echo "Removing installed files from usr/bin"
+sudo rm -f /usr/bin/$what
+sudo rm -f /usr/bin/$what2
 
-echo "done."
+echo "ydotool will not be removed. Please proceed manually if you will with: "
+echo "sudo pacman -R ydotool"
+
+echo "Done."
 
 

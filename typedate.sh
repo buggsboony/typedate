@@ -1,8 +1,7 @@
 #!/bin/bash
 
-
-sleep 0.6
+sleep 0.1
 
 dt=$(date "+%Y-%m-%d %H:%M:%S")
 
-xdotool type "$dt"
+ydotool type -d 0.1 -H 0.3 "$dt"
