@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 0.5
+sleep 0.3
 
 dt=$(date "+%Y-%m-%d %H:%M:%S")
 
