@@ -13,7 +13,7 @@ echo "Removing installed files from usr/bin"
 sudo rm -f /usr/bin/$what
 sudo rm -f /usr/bin/$what2
 
-echo "ydotool will not be removed. Please proceed manually if you will with: "
+printf "${LRED}ydotool will not be removed. Please proceed manually if you will with: ${NC}\n"
 echo "sudo pacman -R ydotool"
 
 echo "Done."

@@ -1,18 +1,28 @@
 #!/bin/bash
 # console colors 2021-10-03 11:04:37
-GREEN='\033[0;32m'   #printf "${LRED}File not found :'${1}'${NC}\n"
-LGREEN='\033[1;32m'  #printf " Set executable rights for : ${YELL}\"$realpath\" ${NC}\n"
-WHITE='\033[1;37m'
-YELL='\033[1;33m'
-RED='\033[0;31m'
-LRED='\033[1;31m'
+
+# New Console Colors
+BYELL='\033[1;33m'
+RED='\033[38;5;1m'
+BLUE='\033[38;5;4m'
+GRAY='\033[38;5;8m'
+
+BRED='\033[1;31m'
 MAG='\033[0;35m'
-LMAG='\033[1;35m'
-CYAN='\033[0;36m'
-LCYAN='\033[1;36m'
-NC='\033[0m' # No Color
+BMAG='\033[1;35m'
+VIOLET='\033[38;5;5m'
+TURQUOISE='\033[38;5;37m'
+VFLUO='\033[38;5;40m'
+GOLD='\033[38;5;100m'
+LGREEN='\033[38;5;6m'
+GREEN='\033[0;32m'
+BGREEN='\033[1;32m'
+
+ORAN='\033[0;33m'
+NC='\033[0m'
 
 
+echo -e "${RED}Ceci est du texte en rouge${NC}"
 
 #install stuff
 what=typedate
@@ -39,4 +49,4 @@ git clone https://github.com/david-vct/ydotool-rebind.git
 cd ydotool-rebind
 sudo ./install.sh
 
-echo "OK finished !"
+echo "Done."
