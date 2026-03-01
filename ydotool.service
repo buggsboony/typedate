@@ -1,0 +1,16 @@
+# /etc/systemd/system/ydotool.service
+[Unit]
+Description=Starts ydotoold service
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/ydotoold --socket-path=/run/user/1000/.ydotool_socket --socket-own="$(id -u):$(id -g)"
+ExecStartPost=/usr/bin/chmod 666 /run/user/1000/.ydotool_socket
+KillMode=process
+TimeoutSec=180
+
+[Install]
+WantedBy=default.target

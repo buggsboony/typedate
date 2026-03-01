@@ -22,11 +22,10 @@ ORAN='\033[0;33m'
 NC='\033[0m'
 
 
-echo -e "${RED}Ceci est du texte en rouge${NC}"
-
 #install stuff
 what=typedate
 extension=.sh
+service_basename=ydotool
 #peut être extension vide
 
 
@@ -39,11 +38,25 @@ echo "Directly copied to /usr/bin for maximum execution speed"
 sudo cp "$PWD/$what$extension" /usr/bin/$what
 
 
-printf "${YELL}Installing ydotool (supports both Wayland and X11)...?${NC}\n"
+echo -e "${ORAN}Installing ydotool (supports both Wayland and X11)...?${NC}\n"
 sudo pacman -S ydotool
 
 
-printf "${YELL}Installing ydotool-rebind for AZERTY layout...${NC}\n"
+echo -e "${ORAN}Deploy $service_basename.service...?${NC}\n"
+sudo cp "$service_basename.service" "/etc/systemd/system/$service_basename.service"
+
+
+echo -e "${BLUE}Enable and start ydotool socket service.."
+sudo systemctl daemon-reload
+sudo systemctl enable ydotool.service
+sudo systemctl start ydotool.service
+
+#Export Socket path :
+#Configurez l'environnement pour que ydotool utilise le bon socket : 
+#Ajoutez cette ligne dans ~/.profile ou ~/.bashrc :
+#export YDOTOOL_SOCKET=/tmp/.ydotool_socket
+
+echo -e  "${ORAN}Installing ydotool-rebind for AZERTY layout...${NC}\n"
 
 git clone https://github.com/david-vct/ydotool-rebind.git 
 cd ydotool-rebind
