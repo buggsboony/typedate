@@ -1,16 +1,18 @@
 # /etc/systemd/system/ydotool.service
 [Unit]
-Description=Starts ydotoold service
-After=graphical-session.target
-PartOf=graphical-session.target
+Description=Ydotool Daemon (System-wide)
+# On attend que l'utilisateur 1000 soit loggé et son dossier /run/user/1000 créé
+After=user@1000.service
+Requires=user@1000.service
 
 [Service]
 Type=simple
+# On met les IDs en dur (1000:1000) car Systemd ne lit pas $(id -u)
+ExecStart=/usr/bin/ydotoold --socket-path=/run/user/1000/.ydotool_socket --socket-own=1000:1000
+# On s'assure que l'utilisateur peut lire/écrire sur la socket
+ExecStartPost=/usr/bin/chmod 660 /run/user/1000/.ydotool_socket
 Restart=always
-ExecStart=/usr/bin/ydotoold --socket-path=/run/user/1000/.ydotool_socket --socket-own="$(id -u):$(id -g)"
-ExecStartPost=/usr/bin/chmod 666 /run/user/1000/.ydotool_socket
-KillMode=process
-TimeoutSec=180
+RestartSec=5
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
